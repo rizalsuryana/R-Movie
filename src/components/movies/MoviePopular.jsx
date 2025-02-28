@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
 import { toast } from 'react-toastify';
+import MovieCard from '../MovieCard';
 
 const MoviePopular = () => {
   const [movieList, setMovieList] = useState([]);
@@ -22,14 +23,7 @@ const MoviePopular = () => {
     <div>
       {
         movieList.map((movie)=> (
-          <div key={movie.id}>
-            <h1>{movie?.title}</h1>
-            <p>{movie?.release_date}</p>
-            <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
-              alt={movie.title}/>
-            <p>Rating: {movie?.vote_average}</p>
-            <span>{movie?.vote_count} Votes</span>
-          </div>
+          <MovieCard key={movie?.id} movie={movie}/>
         ))
       }
     </div>

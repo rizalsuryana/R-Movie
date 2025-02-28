@@ -89,6 +89,26 @@ const api = (()=> {
     return checkStatus(response);
   };
 
+
+
+  // trending this weeks
+  const getTrendingMovieWeeks = async () => {
+    const response = await _fetchWithToken(
+      `${BASE_URL}/trending/movie/week?language=en-US&page=1`
+    );
+    return checkStatus(response);
+  };
+
+  // trending day
+
+  const getTrendingMovieDay = async () => {
+    const response = await _fetchWithToken(
+      `${BASE_URL}/trending/movie/day?language=en-US&page=1`
+    );
+    return checkStatus(response);
+  };
+
+
   // search
   const searchMovies = async (query) => {
     const response = await _fetchWithToken(
@@ -97,11 +117,16 @@ const api = (()=> {
     return checkStatus(response);
   };
 
+
+
+
   return {
     getPopularMovie,
     getNowPlayingMovies,
     getTopRatedMovies,
     getUpComingMovies,
+    getTrendingMovieDay,
+    getTrendingMovieWeeks,
     searchMovies,
   };
 
