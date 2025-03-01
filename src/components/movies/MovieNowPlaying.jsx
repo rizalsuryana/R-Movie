@@ -36,7 +36,7 @@ const MovieNowPlaying = () => {
       }
     };
 
-    document.title = 'R-Movie | Now Playing Movie';
+    document.title = 'Now Playing Movie';
     fetchNowPlayingMovie();
   }, []);
 

@@ -10,6 +10,7 @@ import Navbar from './components/navigation/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import './styles/style.css';
 import NavbarBottom from './components/navigation/NavbarBottom';
+import MovieDetail from './pages/MovieDetail';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/upcoming" element={<MovieUpComing />} />
         <Route path="/now-playing" element={<MovieNowPlaying />} />
         <Route path="/top-rated" element={<MovieTopRated />} />
+        <Route path='/movie/:id' element={<MovieDetail/>}/>
       </Routes>
     </div>
   );

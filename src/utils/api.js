@@ -109,6 +109,14 @@ const api = (()=> {
   };
 
 
+  const getDetailMovie = async (id) => {
+    const response = await _fetchWithToken(
+      `${BASE_URL}/movie/${id}?language=en-US`
+    );
+    return checkStatus(response);
+  };
+
+
   // search
   const searchMovies = async (query) => {
     const response = await _fetchWithToken(
@@ -127,6 +135,7 @@ const api = (()=> {
     getUpComingMovies,
     getTrendingMovieDay,
     getTrendingMovieWeeks,
+    getDetailMovie,
     searchMovies,
   };
 
