@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Nav = styled.nav`
   background: ${({ isScrolled }) => (isScrolled ? '#141414' : 'rgba(20, 20, 20, 0.23)')};
@@ -25,32 +24,21 @@ const Logo = styled.h1`
 
 const NavList = styled.ul`
   display: flex;
-  justify-content: space-evenly; /* Bagi rata ruang antar item */
+  justify-content: space-evenly;
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 60%; /* Biar navbar gak terlalu rapat */
+  width: 60%;
   flex-wrap: nowrap;
 
-  @media (max-width: 1024px) {
-    width: 70%;
-  }
-
   @media (max-width: 768px) {
-    position: absolute;
-    top: 60px;
-    left: ${({ open }) => (open ? '0' : '-100%')};
-    width: 100%;
-    flex-direction: column;
-    background: #141414;
-    padding: 20px;
-    transition: left 0.3s ease-in-out;
+    display: none; /* Sembunyikan menu di mobile */
   }
 `;
 
 const NavItem = styled.li`
   position: relative;
-  flex-shrink: 0; /* Supaya item tidak mengecil */
+  flex-shrink: 0;
 `;
 
 const NavLink = styled(Link)`
@@ -58,8 +46,8 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  padding: 10px 20px; /* Tambah padding supaya lebih nyaman */
-  white-space: nowrap; /* Supaya teks tidak terpotong */
+  padding: 10px 20px;
+  white-space: nowrap;
   text-align: center;
   transition: color 0.3s ease-in-out;
 
@@ -84,19 +72,7 @@ const NavLink = styled(Link)`
   }
 `;
 
-const MenuIcon = styled.div`
-  display: none;
-  color: white;
-  font-size: 1.8rem;
-  cursor: pointer;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
-`;
-
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -108,13 +84,10 @@ const Navbar = () => {
   return (
     <Nav isScrolled={isScrolled}>
       <Logo>R-Movie</Logo>
-      <MenuIcon onClick={() => setOpen(!open)}>
-        {open ? <FaTimes /> : <FaBars />}
-      </MenuIcon>
-      <NavList open={open}>
+      <NavList>
         {['Home', 'Popular', 'Upcoming', 'Now Playing', 'Top Rated'].map((text) => (
           <NavItem key={text}>
-            <NavLink to={text === 'Home' ? '/' : `/${text.toLowerCase().replace(' ', '-')}`} onClick={() => setOpen(false)}>
+            <NavLink to={text === 'Home' ? '/' : `/${text.toLowerCase().replace(' ', '-')}`}>
               {text}
             </NavLink>
           </NavItem>
