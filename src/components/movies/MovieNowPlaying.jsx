@@ -15,6 +15,7 @@ const MovieNowPlaying = () => {
         console.error('error fetch now playing', error);
       }
     };
+    document.title = 'R-Movie | Now Playing Movie';
     fetchNowPlayingMovie();
   }, []);
   return (

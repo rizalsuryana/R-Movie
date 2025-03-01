@@ -15,7 +15,7 @@ const MoviePopular = () => {
         toast.error(error.message);
       }
     };
-
+    document.title = 'R-Movie | Popular Movie';
     fetchMovie();
   }, []);
 

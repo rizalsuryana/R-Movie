@@ -15,6 +15,8 @@ const MovieTopRated = () => {
         console.error('error fecth top rated movie', error);
       }
     };
+    document.title = 'R-Movie | Top Rated Movie';
+
     fetchTopRatedMovies();
   }, []);
   return (
