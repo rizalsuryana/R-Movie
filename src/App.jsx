@@ -8,12 +8,15 @@ import MovieTopRated from './components/movies/MovieTopRated';
 import MovieUpComing from './components/movies/MovieUpComing';
 import Navbar from './components/navigation/Navbar';
 import { Route, Routes } from 'react-router-dom';
+import './styles/style.css';
+import NavbarBottom from './components/navigation/NavbarBottom';
 
 function App() {
 
   return (
     <div>
       <Navbar />
+      <NavbarBottom/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/popular" element={<MoviePopular />} />
