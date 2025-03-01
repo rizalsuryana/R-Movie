@@ -45,7 +45,7 @@ const MovieUpComing = () => {
       }
     };
 
-    document.title = 'R-Movie | Upcoming Movie';
+    document.title = 'Upcoming Movie';
     fetchUpcomingMovie();
   }, []);
 

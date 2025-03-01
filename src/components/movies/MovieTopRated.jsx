@@ -45,7 +45,7 @@ const MovieTopRated = () => {
       }
     };
 
-    document.title = 'R-Movie | Top Rated Movie';
+    document.title = 'Top Rated Movie';
     fetchTopRatedMovies();
   }, []);
 

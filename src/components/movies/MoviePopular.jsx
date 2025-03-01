@@ -46,7 +46,7 @@ const MoviePopular = () => {
       }
     };
 
-    document.title = 'R-Movie | Popular Movie';
+    document.title = 'Popular Movie';
     fetchMovie();
   }, []);
 
